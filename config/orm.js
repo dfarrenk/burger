@@ -40,7 +40,7 @@ var connection = require('../config/connection.js');
 // }
 
 var orm = {
-    selectall: function(callback) {
+    selectAll: function(callback) {
         connection.query("Select * FROM burgers", function(error, response) {
             if (error) throw error;
             callback(response);
@@ -86,4 +86,4 @@ function afterConnection(query) {
 }
 
 // orm.selectall(afterConnection);
-orm.insertOne("The Camelot", afterConnection);
+// orm.insertOne("The Camelot", afterConnection);
