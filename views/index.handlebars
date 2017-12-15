@@ -18,7 +18,11 @@
                 </div>
                 <div class="panel-body">
                     {{#each burgers}} {{#unless devoured}}
-                    <h3>{{burger_name}} <button type="button" class="btn btn-lg">Devour</button></h3>
+                    <h3>{{burger_name}}
+                        <form action="api/burgers/{{this.id}}?_method=PUT" method="POST" style="display: inline;">
+                            <button type="submit" class="btn btn-lg"> DEVOUR </button>
+                        </form>
+                    </h3>
                     {{/unless}} {{/each}}
                 </div>
             </div>
@@ -31,13 +35,9 @@
                 <div class="panel-body">
                     <!--Burgers go here-->
                     <ul class="list-group">
-                        {{!--{{#each burgers}} {{#if devoured}}--}}
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                        {{!--{{/if}} {{/each}}--}}
+                        {{#each burgers}} {{#if devoured}}
+                        <li class="list-group-item">{{burger_name}}</li>
+                        {{/if}} {{/each}}
                     </ul>
                 </div>
             </div>
