@@ -4,7 +4,7 @@ var connection = require('../config/connection.js');
 var orm = {
     // fetch whole table
     selectAll: function(callback) {
-        connection.query("Select * FROM burgers", function(error, response) {
+        connection.query("SELECT * FROM burgers", function(error, response) {
             if (error) throw error;
             callback(response);
         });
